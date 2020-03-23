@@ -1,0 +1,10 @@
+# Verify that all IDs include the {context} attribute. This is to ensure
+# the module can be used in multiple assemblies within the same document.
+---
+extends: conditional
+message: "Use {context} in the section ID."
+link: "https://redhat-documentation.github.io/modular-docs/"
+level: warning
+scope: raw
+first: "(.id=[\"'][^\"'{]+)"
+second: "(.id=[\"'][^\"'{]+)(?:[-_]?{context})"
