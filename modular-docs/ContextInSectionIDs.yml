@@ -6,5 +6,5 @@ message: "Use {context} in the section ID."
 link: "https://redhat-documentation.github.io/modular-docs/"
 level: warning
 scope: raw
-first: "(.id=[\"'][^\"'{]+)"
-second: "(.id=[\"'][^\"'{]+)(?:[-_]?{context})"
+first: ".id=[\"'][^\"'{]+"
+second: "(.id=[\"'][^\"'{]+)[-_]?{context}"
