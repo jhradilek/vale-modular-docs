@@ -1,5 +1,7 @@
 = Test
 
-:context: test
+include::test.adoc
 
 Lorem ipsum.
+
+:context: test

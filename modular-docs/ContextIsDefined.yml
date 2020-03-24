@@ -3,9 +3,9 @@
 # included in other parts of the document as well.
 ---
 extends: conditional
-message: "Define {context} when including other files."
+message: "Define {context} before including other files."
 link: "https://redhat-documentation.github.io/modular-docs/"
 level: warning
 scope: raw
-first: "(?s)\ninclude::"
-second: "(?s):context: *[[:alnum:]].*(\ninclude::)"
+first: "(?s)(^|\\n)include::"
+second: "(?s):context: *[[:alnum:]].*(\\ninclude::)"

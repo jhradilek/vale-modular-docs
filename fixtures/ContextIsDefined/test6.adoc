@@ -1,5 +1,5 @@
+include::test.adoc
+
 = Test
 
 Lorem ipsum.
-
-include::test.adoc
