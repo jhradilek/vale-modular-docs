@@ -2,9 +2,9 @@
 # the module can be used in multiple assemblies within the same document.
 ---
 extends: conditional
-message: "Use {context} in the section ID."
+message: "Use {context} in the section ID: %s"
 link: "https://redhat-documentation.github.io/modular-docs/"
 level: warning
 scope: raw
-first: ".id=[\"'][^\"'{]+"
-second: "(.id=[\"'][^\"'{]+)[-_]?{context}"
+first: "(?m)^(\\[id=[\"'][^\"'{]*)"
+second: "(?m)^(\\[id=[\"'][^\"'{]*)(?:[-_]?{context})"

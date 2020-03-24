@@ -1,5 +1,5 @@
 [id="test-{context}"]
-= Test
+== Test
 
 Lorem ipsum.
 
@@ -12,18 +12,3 @@ Lorem ipsum.
 == Test
 
 Lorem ipsum.
-
-[id="test-context"]
-== Test
-
-Lorem ipsum.
-
-[id="test"]
-== Test
-
-Lorem ipsum.
-
-----
-[id="test"]
-= Test
-----

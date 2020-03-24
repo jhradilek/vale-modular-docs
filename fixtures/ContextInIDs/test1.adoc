@@ -1,0 +1,14 @@
+[id='test-context']
+== Test
+
+Lorem ipsum.
+
+[id='test']
+== Test
+
+Lorem ipsum.
+
+[id='test-{context}']
+== Test
+
+Lorem ipsum.
