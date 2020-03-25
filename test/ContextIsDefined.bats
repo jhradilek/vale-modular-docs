@@ -37,3 +37,15 @@ load test_helper
   [ "$status" -eq 0 ]
   [ "${lines[0]}" = "test6.adoc:1:1:modular-docs.ContextIsDefined:Define {context} before including other files: include::test.adoc" ]
 }
+
+@test "Context is defined: CR+LF line ending" {
+  run run_vale "$BATS_TEST_FILENAME" test7.adoc
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "" ]
+}
+
+@test "Context is defined: LF line ending" {
+  run run_vale "$BATS_TEST_FILENAME" test8.adoc
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "" ]
+}

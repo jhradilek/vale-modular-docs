@@ -7,5 +7,5 @@ message: "Define {context} before including other files: %s"
 link: "https://redhat-documentation.github.io/modular-docs/"
 level: warning
 scope: raw
-first: "(?s)(^|\\n)include::[^\\n]+"
-second: "(?s):context: *[[:alnum:]].*(\\ninclude::[^\\n]+)"
+first: "(?s)(^|[\\n\\r])include::[^\\n\\r]+"
+second: "(?s):context: *[[:alnum:]].*([\\n\\r]include::[^\\n\\r]+)"
