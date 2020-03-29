@@ -1,6 +1,6 @@
 = Test
 
-include::test.adoc
+include::test.adoc[]
 
 Lorem ipsum.
 

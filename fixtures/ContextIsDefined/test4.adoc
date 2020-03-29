@@ -4,4 +4,4 @@
 
 Lorem ipsum.
 
-include::test.adoc
+include::test.adoc[]
