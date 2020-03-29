@@ -1,0 +1,14 @@
+# Verify that if the file changes the leveloffset value, it pushes all
+# headings by one at maximum.
+---
+extends: existence
+message: "Use leveloffset to add one level at most: %s"
+link: "https://redhat-documentation.github.io/modular-docs/"
+level: warning
+scope: raw
+nonword: true
+tokens:
+  - "^include::[^\\[]+\\[[^\\]]*leveloffset=\\+[2-9][^\\]]*\\]"
+  - "^include::[^\\[]+\\[[^\\]]*leveloffset=\\+\\d{2,}[^\\]]*\\]"
+  - "^:leveloffset:\\s*\\+[2-9]"
+  - "^:leveloffset:\\s*\\+\\d{2,}"
