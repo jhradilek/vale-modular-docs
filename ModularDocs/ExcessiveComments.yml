@@ -1,0 +1,44 @@
+# Verify that the number of comments in any given file does not exceed 50%.
+---
+extends: script
+message: "Remove unneeded comments to lower their number below 50%% of the lines."
+level: suggestion
+scope: raw
+script: |
+  text    := import("text")
+
+  r_comment_block   := text.re_compile("^/{4,}\\s*$")
+  r_comment_line    := text.re_compile("^(//|//[^/].*)$")
+
+  document          := text.split(text.trim_suffix(scope, "\n"), "\n")
+  in_comment_block  := false
+  count             := 0
+  start             := 0
+  end               := 0
+
+  matches           := []
+
+  for line in document {
+    start += end
+    end   = len(line) + 1
+
+    if r_comment_block.match(line) {
+      delimiter := text.trim_space(line)
+      if ! in_comment_block {
+        matches = append(matches, {begin: start, end: start + end -1})
+        in_comment_block = delimiter
+      } else if in_comment_block == delimiter {
+        in_comment_block = false
+      }
+      count++
+    } else if in_comment_block {
+      count++
+    } else if r_comment_line.match(line) {
+      matches = append(matches, {begin: start, end: start + end -1})
+      count++
+    }
+  }
+
+  if (count * 100) / len(document) <= 50 {
+    matches = []
+  }

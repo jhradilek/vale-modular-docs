@@ -1,0 +1,4 @@
+// Neither of the following lines are valid comment lines; if either of
+// them is counted as one, the number of comments will exceed 50%.
+/// This is not a comment.
+ // This is not a comment.

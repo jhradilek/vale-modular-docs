@@ -1,0 +1,2 @@
+// This comment takes up exactly 50% of the lines in this file.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.

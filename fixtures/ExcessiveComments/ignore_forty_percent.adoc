@@ -1,0 +1,5 @@
+// This comment, extended over two separate lines, takes up exactly 40% of
+// the lines in this file.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+gravida dapibus risus, ut dictum sapien luctus vitae. Duis at enim ac magna
+condimentum mollis.

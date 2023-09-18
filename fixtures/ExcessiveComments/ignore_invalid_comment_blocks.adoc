@@ -1,0 +1,16 @@
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+/////
+The following line is not a valid delimiter for this comment block; if it
+is incorrectly recognized as such, the number of comments will not exceed
+50%:
+////
+Pellentesque gravida dapibus risus, ut dictum sapien luctus vitae. Duis at
+enim ac magna condimentum mollis. Aliquam tincidunt neque quis neque
+cursus, non accumsan eros iaculis. Vivamus ut leo sed enim suscipit
+accumsan a tincidunt urna. In interdum tincidunt eleifend. Curabitur
+condimentum, erat at ullamcorper pharetra, turpis diam cursus felis, sed
+efficitur urna ipsum sed sapien. Proin lobortis volutpat orci, non aliquet
+erat blandit et. Sed non dignissim felis, mattis luctus tortor. Vivamus
+eget rutrum dolor. Phasellus sit amet dolor eu nisi euismod scelerisque.
+/////

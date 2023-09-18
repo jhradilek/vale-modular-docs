@@ -1,0 +1,5 @@
+// This comment, artificially prolonged to ensure that it without a shred
+// of a doubt extends over three separate lines, takes up exactly 60% of
+// the lines in this file.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+gravida dapibus risus, ut dictum sapien luctus vitae.

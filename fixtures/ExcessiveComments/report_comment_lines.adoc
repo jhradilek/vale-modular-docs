@@ -1,0 +1,2 @@
+// This is an example of a line comment that should be counted and reported
+// as exceeding the reasonable comment to code ratio.
