@@ -1,0 +1,53 @@
+# Verify that code blocks highlight commands entered at a shell prompt in
+# bold.
+---
+extends: script
+message: "Highlight commands entered at a shell prompt in bold."
+level: suggestion
+scope: raw
+script: |
+  text := import("text")
+
+  r_comment_block   := text.re_compile("^/{4,}\\s*$")
+  r_delimited_block := text.re_compile("^(\\.{4,}|-{4,})\\s*$")
+  r_command_prompt  := text.re_compile("^[^#$]*[#$]\\s+[^\\*\\s]+")
+
+  in_comment_block  := false
+  in_code_block     := false
+  start             := 0
+  end               := 0
+
+  matches           := []
+
+  change_state := func(line, current_state) {
+    delimiter := text.trim_space(line)
+
+    if ! current_state {
+      return delimiter
+    }
+
+    if current_state == delimiter {
+      return false
+    }
+  }
+
+  for line in text.split(scope, "\n") {
+    start += end
+    end   = len(line) + 1
+
+    if r_comment_block.match(line) {
+      in_comment_block = change_state(line, in_comment_block)
+      continue
+    }
+    if in_comment_block { continue }
+
+    if r_delimited_block.match(line) {
+      in_code_block = change_state(line, in_code_block)
+      continue
+    }
+    if ! in_code_block { continue }
+
+    if r_command_prompt.match(line) {
+      matches = append(matches, {begin: start, end: start + end -1})
+    }
+  }
