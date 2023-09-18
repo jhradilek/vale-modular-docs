@@ -1,31 +1,45 @@
-# A custom makefile for the modular-docs Vale style.
-# Copyright (C) 2020 Jaromir Hradilek <jhradilek@gmail.com>
+# A custom makefile for the ModularDocs Vale style
+# Copyright (C) 2020, 2023 Jaromir Hradilek
 
 # General settings:
-SHELL    = /bin/sh
+SHELL     = /bin/sh
 
 # Source files and directories:
-SRCSDIR  = modular-docs
-TESTDIR  = test
-SRCS    := $(wildcard $(SRCSDIR)/*.yml)
-TESTS   := $(wildcard $(TESTDIR)/*.bats)
+SRCSDIR   = ModularDocs
+TESTDIR   = test
+SRCS     := $(wildcard $(SRCSDIR)/*.yml)
+TESTS    := $(wildcard $(TESTDIR)/*.bats)
+LOGFILE   = CHANGELOG.adoc
 
-# The yamllint command:
-YAMLLINT = \yamllint -s -f auto
+# Command aliases:
+BATS      = \bats
+YAMLLINT  = \yamllint -s -f auto
+CHANGELOG = \git log --pretty='{%D}* %s' | \sed -e 's/^{[^}]*tag: \([^},]\+\)[^}]*}/\n\#\# \1\n\n/;s/^{[^}]*}//;1i \# Changelog\n'
 
-# The bats command:
-BATS     = \bats
+# Generate a changelog file from the revision hisotry:
+.PHONY: changelog
+changelog:
+	@echo "Generating $(LOGFILE)..."
+	@$(CHANGELOG) > $(LOGFILE)
+	@echo "Done."
 
-# Check all Vale rules to ensure they are valid YAML files:
+# Verify that all Vale rules are valid YAML files:
 .PHONY: validate
 validate: $(SRCS)
 	@echo "Validating Vale rules in $(SRCSDIR)..."
 	@$(YAMLLINT) $^
 	@echo "Done."
 
-# Run all tests to ensure Vale rules produce expected results:
+# Verify that all Vale rules produce expected results on test data:
 .PHONY: test
 test: $(TESTS)
 	@echo "Running test files in $(TESTDIR)..."
 	@$(BATS) $^
+	@echo "Done."
+
+# Remove generated files:
+.PHONY: clean
+clean:
+	@echo "Removing generated files:"
+	-rm -f $(LOGFILE)
 	@echo "Done."
