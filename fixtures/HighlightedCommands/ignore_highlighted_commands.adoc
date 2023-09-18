@@ -1,0 +1,23 @@
+// A command at a simple user prompt:
+[subs="+quotes"]
+----
+$ *ln -s ../../../assemblies/*
+----
+
+// A command at a simple root prompt:
+[subs="+quotes"]
+----
+# *ln -s ../../../assemblies/*
+----
+
+// A command at a simple user prompt:
+[subs="+quotes"]
+----
+$ **ln -s ../../../assemblies/**
+----
+
+// A command at a simple root prompt:
+[subs="+quotes"]
+----
+# **ln -s ../../../assemblies/**
+----

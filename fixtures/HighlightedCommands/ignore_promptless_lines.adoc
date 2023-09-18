@@ -1,0 +1,14 @@
+// A delimited listing block without a command prompt:
+----
+ln -s ../../../assemblies/
+----
+
+// A delimited listing block with a regular expression:
+----
+"^/{4,}\s*$"
+----
+
+// A delimited listing block with a currency value:
+----
+Speed Cube 3x3x3: $35
+----

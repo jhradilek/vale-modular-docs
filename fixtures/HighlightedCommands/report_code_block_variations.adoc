@@ -1,0 +1,19 @@
+// A delimited listing block:
+----
+$ ln -s ../../../assemblies/
+----
+
+// A delimited literal block:
+....
+$ ln -s ../../../assemblies/
+....
+
+// A delimited listing block with an unusual but valid delimiter:
+-------
+$ ln -s ../../../assemblies/
+-------
+
+// A delimited listing block with an unusual but valid delimiter:
+.......
+$ ln -s ../../../assemblies/
+.......

@@ -1,0 +1,19 @@
+// A command at a simple user prompt:
+----
+$ ln -s ../../../assemblies/
+----
+
+// A command at a simple root prompt:
+----
+# ln -s ../../../assemblies/
+----
+
+// A command at a full user prompt copied directly from the command line:
+----
+[user@localhost ~]$ ln -s ../../../assemblies/
+----
+
+// A command at a full root prompt copied directly from the command line:
+----
+[root@localhost ~]# ln -s ../../../assemblies/
+----

@@ -1,0 +1,9 @@
+// First occurrence of an eligible command:
+----
+$ ln -s ../../../assemblies/
+----
+
+// The very same command that should however be reported separately:
+----
+$ ln -s ../../../assemblies/
+----

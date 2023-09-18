@@ -1,0 +1,4 @@
+// A delimited listing block:
+//----
+//$ ln -s ../../../assemblies/
+//----

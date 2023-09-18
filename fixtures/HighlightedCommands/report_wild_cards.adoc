@@ -1,0 +1,9 @@
+// A delimited listing block with a wild card in the middle:
+----
+$ ls *.adoc
+----
+
+// A delimited listing block with a wild card at the end:
+----
+$ ls modules/proc_*
+----

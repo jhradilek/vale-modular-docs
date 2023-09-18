@@ -1,0 +1,14 @@
+// An invalid listing block:
+---
+$ ln -s ../../../assemblies/
+---
+
+// An invalid literal block:
+...
+$ ln -s ../../../assemblies/
+...
+
+// An invalid code block:
+.-.-
+$ ln -s ../../../assemblies/
+.-.-
