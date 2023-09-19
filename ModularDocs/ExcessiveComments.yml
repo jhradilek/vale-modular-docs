@@ -1,7 +1,7 @@
 # Verify that the number of comments in any given file does not exceed 50%.
 ---
 extends: script
-message: "Remove unneeded comments to lower their number below 50%% of the lines."
+message: "Commented lines should not exceed 50%% of the file."
 level: suggestion
 scope: raw
 script: |
@@ -39,6 +39,12 @@ script: |
     }
   }
 
-  if (count * 100) / len(document) <= 50 {
+  percentage := (count * 100) / len(document)
+
+  if percentage > 50 {
+    for index, _ in copy(matches) {
+      matches[index].message = "Commented lines should not exceed 50%% of the file. Current number is " + percentage + "%%."
+    }
+  } else {
     matches = []
   }
