@@ -6,7 +6,8 @@ message: "Highlight commands entered at a shell prompt in bold."
 level: suggestion
 scope: raw
 script: |
-  text := import("text")
+  text              := import("text")
+  matches           := []
 
   r_comment_block   := text.re_compile("^/{4,}\\s*$")
   r_delimited_block := text.re_compile("^(\\.{4,}|-{4,})\\s*$")
@@ -17,17 +18,15 @@ script: |
   start             := 0
   end               := 0
 
-  matches           := []
-
   change_state := func(line, current_state) {
     delimiter := text.trim_space(line)
 
     if ! current_state {
       return delimiter
-    }
-
-    if current_state == delimiter {
+    } else if current_state == delimiter {
       return false
+    } else {
+      return current_state
     }
   }
 

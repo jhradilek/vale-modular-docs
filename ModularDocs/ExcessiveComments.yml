@@ -5,7 +5,8 @@ message: "Commented lines should not exceed 50%% of the file."
 level: suggestion
 scope: raw
 script: |
-  text    := import("text")
+  text              := import("text")
+  matches           := []
 
   r_comment_block   := text.re_compile("^/{4,}\\s*$")
   r_comment_line    := text.re_compile("^(//|//[^/].*)$")
@@ -15,8 +16,6 @@ script: |
   count             := 0
   start             := 0
   end               := 0
-
-  matches           := []
 
   for line in document {
     start += end
@@ -43,7 +42,8 @@ script: |
 
   if percentage > 50 {
     for index, _ in copy(matches) {
-      matches[index].message = "Commented lines should not exceed 50%% of the file. Current number is " + percentage + "%%."
+      matches[index].message = "Commented lines should not exceed 50%% " +
+        "of the file. Current number is " + percentage + "%%."
     }
   } else {
     matches = []
