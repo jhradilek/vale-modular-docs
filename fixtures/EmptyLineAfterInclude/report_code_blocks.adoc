@@ -1,0 +1,5 @@
+// The following directive is within a code block and should be reported:
+----
+include::attributes.adoc[]
+$ ln -s ../../../assemblies/
+----

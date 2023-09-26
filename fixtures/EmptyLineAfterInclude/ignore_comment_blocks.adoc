@@ -1,0 +1,6 @@
+////
+Include directives in a comment block:
+
+include::attributes.adoc[]
+include::appendix.adoc[]
+////

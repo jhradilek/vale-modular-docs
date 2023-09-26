@@ -1,0 +1,14 @@
+include::attributes.adoc[]
+// A comment line should not be recognized as an empty line.
+include::preface.adoc[]
+// A comment line should not be recognized as a non-empty line either.
+
+include::typographic_conventions.adoc[]
+////
+A comment block should not be recognized as an empty line.
+////
+include::appendix.adoc[]
+////
+A comment block should not be recognized as a non-empty line either.
+////
+

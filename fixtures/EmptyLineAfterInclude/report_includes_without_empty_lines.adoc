@@ -1,0 +1,5 @@
+// The following include directives are not followed by empty lines:
+include::attributes.adoc[]
+include::preface.adoc[]
+== Additional resources
+include::appendix.adoc[]

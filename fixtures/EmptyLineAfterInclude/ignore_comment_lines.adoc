@@ -1,0 +1,3 @@
+// Include directives in single-line comments:
+// include::attributes.adoc[]
+// include::appendix.adoc[]

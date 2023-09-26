@@ -1,0 +1,3 @@
+// The following include directives are escaped:
+\include::attributes.adoc[]
+\include::appendix.adoc[]
