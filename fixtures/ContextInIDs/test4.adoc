@@ -1,4 +1,0 @@
-//[id="test"]
-//== Test
-//
-//Lorem ipsum.

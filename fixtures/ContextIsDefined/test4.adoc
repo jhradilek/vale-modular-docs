@@ -1,7 +1,0 @@
-= Test
-
-:context:
-
-Lorem ipsum.
-
-include::test.adoc[]

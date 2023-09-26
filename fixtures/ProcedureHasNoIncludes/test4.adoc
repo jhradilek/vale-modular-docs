@@ -1,9 +1,0 @@
-= test
-
-include::test1.adoc[leveloffset=+1]
-include::test2.adoc[]
-
-.Procedure
-
-. Step 1.
-. Step 2.

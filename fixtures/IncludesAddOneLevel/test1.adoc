@@ -1,9 +1,0 @@
-= Test
-
-:context: test
-
-include::test1.adoc[]
-include::test2.adoc[leveloffset=+0]
-include::test3.adoc[leveloffset=+1]
-include::test4.adoc[leveloffset=+2]
-include::test5.adoc[leveloffset=+10]

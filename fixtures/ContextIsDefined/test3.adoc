@@ -1,5 +1,0 @@
-= Test
-
-:context: test
-
-Lorem ipsum.
