@@ -1,0 +1,72 @@
+# Verify that if an include directive is present, the context attribute is
+# defined and its prevous value is retained and restored.
+---
+extends: script
+message: "Define :context: to enable module reuse."
+level: warning
+scope: raw
+script: |
+  text                := import("text")
+  matches             := []
+
+  r_comment_line      := text.re_compile("^(//|//[^/].*)$")
+  r_delimited_block   := text.re_compile("^(\\.{4,}|-{4,}|/{4,})\\s*$")
+  r_include_directive := text.re_compile("^include::[^\\s\\[]+" +
+    "\\[[^\\[]*\\]\\s*$")
+  r_context_defined   := text.re_compile("^:context:\\s+\\S")
+  r_context_stored    := text.re_compile("^ifdef::context\\[" +
+    ":parent-context[^!:\\s]*:\\s+\\{context\\}\\]\\s*$")
+  r_context_restored  := text.re_compile("^ifdef::parent-context" +
+    "[^\\[\\s]*\\[:context:\\s+\\{parent-context[^\\}\\s]*\\}\\]\\s*$")
+
+  in_delimited_block  := false
+  is_include_present  := false
+  is_context_defined  := false
+  is_context_stored   := false
+  is_context_restored := false
+  start               := 0
+  end                 := 0
+
+  for line in text.split(scope, "\n") {
+    start += end
+    end   = len(line) + 1
+
+    if r_delimited_block.match(line) {
+      delimiter := text.trim_space(line)
+      if ! in_delimited_block {
+        in_delimited_block = delimiter
+      } else if in_delimited_block == delimiter {
+        in_delimited_block = false
+      }
+      continue
+    }
+    if in_delimited_block { continue }
+    if r_comment_line.match(line) { continue }
+
+    if ! is_include_present && r_include_directive.match(line) {
+      is_include_present = {begin: start, end: start + end - 1,
+        message: "Define :context: to enable module reuse."}
+    } else if ! is_context_defined && r_context_defined.match(line) {
+      is_context_defined = {begin: start, end: start + end - 1,
+        message: "Store inherited context in :parent-context: " +
+                 "before assigning a new value."}
+    } else if ! is_context_stored && r_context_stored.match(line) {
+      is_context_stored  = {begin: start, end: start + end - 1,
+        message: "Restore inherited context from :parent-context: " +
+                 "at the end of the file."}
+    } else if ! is_context_restored && r_context_restored.match(line) {
+      is_context_restored = true
+    }
+  }
+
+  if is_include_present && ! is_context_defined {
+    matches = append(matches, is_include_present)
+  }
+
+  if is_context_defined && ! is_context_stored {
+    matches = append(matches, is_context_defined)
+  }
+
+  if is_context_stored && ! is_context_restored {
+    matches = append(matches, is_context_stored)
+  }
