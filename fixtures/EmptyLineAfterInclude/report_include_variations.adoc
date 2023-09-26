@@ -1,0 +1,6 @@
+// The following are valid include directives:
+include::attributes.adoc[]
+include::attributes.adoc[leveloffset=+1]
+include::attributes.adoc[lines=1;2;5..10]
+include::../../../attributes.adoc[]
+include::{common-content}/attributes.adoc[]
