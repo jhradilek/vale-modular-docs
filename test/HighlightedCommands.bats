@@ -8,7 +8,7 @@ load test_helper
   [ "${lines[0]}" = "" ]
 }
 
-@test "Ignore command prompts in command blocks" {
+@test "Ignore command prompts in comment blocks" {
   run run_vale "$BATS_TEST_FILENAME" ignore_comment_blocks.adoc
   [ "$status" -eq 0 ]
   [ "${lines[0]}" = "" ]
