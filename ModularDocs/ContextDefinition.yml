@@ -40,13 +40,17 @@ script: |
       }
       continue
     }
-    if in_delimited_block { continue }
-    if r_comment_line.match(line) { continue }
 
     if ! is_include_present && r_include_directive.match(line) {
       is_include_present = {begin: start, end: start + end - 1,
         message: "Define :context: to enable module reuse."}
-    } else if ! is_context_defined && r_context_defined.match(line) {
+      continue
+    }
+
+    if in_delimited_block { continue }
+    if r_comment_line.match(line) { continue }
+
+    if ! is_context_defined && r_context_defined.match(line) {
       is_context_defined = {begin: start, end: start + end - 1,
         message: "Store inherited context in :parent-context: " +
                  "before assigning a new value."}
