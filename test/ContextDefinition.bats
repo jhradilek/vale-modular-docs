@@ -32,6 +32,12 @@ load test_helper
   [ "${lines[0]}" = "" ]
 }
 
+@test "Ignore include directives in comment blocks" {
+  run run_vale "$BATS_TEST_FILENAME" ignore_commented_includes.adoc
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "" ]
+}
+
 @test "Report missing context definition" {
   run run_vale "$BATS_TEST_FILENAME" report_missing_context_definition.adoc
   [ "$status" -eq 0 ]

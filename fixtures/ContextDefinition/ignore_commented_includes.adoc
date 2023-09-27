@@ -1,0 +1,11 @@
+////
+Attribute definitions and an include directive in comment blocks:
+
+ifdef::context[:parent-context: {context}]
+
+:context: test-module
+////
+
+////
+include::appendix.adoc[]
+////

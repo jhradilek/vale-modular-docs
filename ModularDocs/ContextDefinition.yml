@@ -10,7 +10,8 @@ script: |
   matches             := []
 
   r_comment_line      := text.re_compile("^(//|//[^/].*)$")
-  r_delimited_block   := text.re_compile("^(\\.{4,}|-{4,}|/{4,})\\s*$")
+  r_comment_block     := text.re_compile("^/{4,}\\s*$")
+  r_delimited_block   := text.re_compile("^(\\.{4,}|-{4,})\\s*$")
   r_include_directive := text.re_compile("^include::[^\\s\\[]+" +
     "\\[[^\\[]*\\]\\s*$")
   r_context_defined   := text.re_compile("^:context:\\s+\\S")
@@ -31,7 +32,7 @@ script: |
     start += end
     end   = len(line) + 1
 
-    if r_delimited_block.match(line) {
+    if r_delimited_block.match(line) || r_comment_block.match(line) {
       delimiter := text.trim_space(line)
       if ! in_delimited_block {
         in_delimited_block = delimiter
@@ -40,6 +41,7 @@ script: |
       }
       continue
     }
+    if r_comment_block.match(in_delimited_block) { continue }
 
     if ! is_include_present && r_include_directive.match(line) {
       is_include_present = {begin: start, end: start + end - 1,
