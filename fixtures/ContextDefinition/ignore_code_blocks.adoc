@@ -1,0 +1,13 @@
+// Attribute definitions in code blocks:
+----
+ifdef::context[:parent-context: {context}]
+
+:context: test-module
+----
+
+include::appendix.adoc[]
+
+----
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+----

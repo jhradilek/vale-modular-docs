@@ -1,0 +1,4 @@
+// Missing context retention:
+:context: test-module
+
+include::appendix.adoc[]

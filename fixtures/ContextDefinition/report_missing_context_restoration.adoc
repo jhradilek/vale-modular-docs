@@ -1,0 +1,6 @@
+// Missing context restoration:
+ifdef::context[:parent-context: {context}]
+
+:context: test-module
+
+include::appendix.adoc[]
