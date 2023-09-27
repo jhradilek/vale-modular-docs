@@ -1,0 +1,9 @@
+// Common parent context variation:
+ifdef::context[:parent-context-of-the-module: {context}]
+
+:context: test-module
+
+include::appendix.adoc[]
+
+ifdef::parent-context-of-the-module[:context: {parent-context-of-the-module}]
+ifndef::parent-context-of-the-module[:!context:]

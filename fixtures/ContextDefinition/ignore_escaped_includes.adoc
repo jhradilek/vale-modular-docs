@@ -1,0 +1,2 @@
+// The following include directive is escaped:
+\include::appendix.adoc[]

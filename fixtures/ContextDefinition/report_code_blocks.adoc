@@ -1,0 +1,4 @@
+// Include directive in a code block:
+----
+include::appendix.adoc[]
+----
