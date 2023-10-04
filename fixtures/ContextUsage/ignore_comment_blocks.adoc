@@ -1,0 +1,6 @@
+////
+A section ID used in a comment block:
+
+[id="section-id"]
+////
+= Section title

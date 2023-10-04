@@ -1,0 +1,3 @@
+// A section ID without the context attribute:
+[id="section-id"]
+= Section title
