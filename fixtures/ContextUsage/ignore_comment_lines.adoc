@@ -1,0 +1,3 @@
+// A section ID used in a single-line comment:
+//[id="section-id"]
+= Section title

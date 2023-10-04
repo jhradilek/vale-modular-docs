@@ -1,0 +1,15 @@
+// A section ID with the context attribute at the end:
+[id="section-id_{context}"]
+= Section title
+
+// A section ID with the context attribute at the end:
+[id="section-id-{context}"]
+= Section title
+
+// A section ID with the context attribute at the front:
+[id="{context}_section-id"]
+= Section title
+
+// A section ID with the context attribute in the middle:
+[id="sect-{context}-section-id"]
+= Section title

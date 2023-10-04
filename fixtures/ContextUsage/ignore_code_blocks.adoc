@@ -1,0 +1,25 @@
+// A section ID used within a delimited listing block:
+----
+[id="section-id"]
+= Section title
+----
+
+// A section ID used within a delimited literal block:
+....
+[id="section-id"]
+= Section title
+....
+
+// A section ID used within a delimited listing block with an unusual but
+// valid delimiter:
+-------
+[id="section-id"]
+= Section title
+-------
+
+// A section ID used within a delimited literal block: with an unusual but
+// valid delimiter:
+.......
+[id="section-id"]
+= Section title
+.......
